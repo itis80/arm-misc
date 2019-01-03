@@ -20,18 +20,18 @@
     "resources": [
         {
             "comments": "Action Group",
-            "type": "microsoft.insights/actionGroups",
-            "name": "[parameters('actionGroups_name')]",
+            "type": "Microsoft.Insights/actionGroups",
+            "name": "[parameters('actionGroupName')]",
             "apiVersion": "2017-04-01",
             "location": "Global",
             "tags": {},
             "scale": null,
             "properties": {
-                "groupShortName": "[parameters('actionGroups_name')]",
+                "groupShortName": "[parameters('actionGroupName')]",
                 "enabled": true,
                 "emailReceivers": [
                     {
-                        "name": "[parameters('actionGroups_name')]",
+                        "name": "[parameters('actionGroupName')]",
                         "emailAddress": "[parameters('emailAddress')]"
                     }
                 ],
@@ -42,7 +42,7 @@
         },
         {
             "comments": "Service Health Activity Log Alert",
-            "type": "microsoft.insights/activityLogAlerts",
+            "type": "Microsoft.Insights/activityLogAlerts",
             "name": "[parameters('activityLogAlerts_name')]",
             "apiVersion": "2017-04-01",
             "location": "Global",
@@ -67,7 +67,7 @@
                 "actions": {
                     "actionGroups": [
                         {
-                            "actionGroupId": "[resourceId('microsoft.insights/actionGroups', parameters('actionGroups_name'))]",
+                            "actionGroupId": "[resourceId('microsoft.insights/actionGroups', parameters('actionGroupName'))]",
                             "webhookProperties": {}
                         }
                     ]
@@ -76,7 +76,7 @@
                 "description": ""
             },
             "dependsOn": [
-                "[resourceId('microsoft.insights/actionGroups', parameters('actionGroups_name'))]"
+                "[resourceId('microsoft.insights/actionGroups', parameters('actionGroupName'))]"
             ]
         }
     ]
