@@ -141,11 +141,61 @@
             "location": "[parameters('location')]",
             "name": "[parameters('subnet2Name')]",
             "dependsOn": [
-              "[parameters('vnetName')]"
+              "[parameters('subnet1Name')]"
             ],
             "properties": {
               "addressPrefix": "[parameters('subnet2Prefix')]"
             }
+          },
+          {
+            "apiVersion": "2018-06-01",
+            "type": "subnets",
+            "location": "[parameters('location')]",
+            "name": "[parameters('subnet3Name')]",
+            "dependsOn": [
+              "[parameters('subnet2Name')]"
+            ],
+            "properties": {
+              "addressPrefix": "[parameters('subnet3Prefix')]"
+            }
+          },
+          {
+            "apiVersion": "2018-06-01",
+            "type": "subnets",
+            "location": "[parameters('location')]",
+            "name": "[parameters('subnet4Name')]",
+            "dependsOn": [
+              "[parameters('subnet3Name')]"
+            ],
+            "properties": {
+              "addressPrefix": "[parameters('subnet4Prefix')]"
+            }
+          },
+          {
+            "apiVersion": "2018-06-01",
+            "type": "subnets",
+            "location": "[parameters('location')]",
+            "name": "[parameters('subnet5Name')]",
+            "dependsOn": [
+              "[parameters('subnet4Name')]"
+            ],
+            "properties": {
+              "addressPrefix": "[parameters('subnet5Prefix')]"
+            }
+          },
+          {
+            "apiVersion": "2018-06-01",
+            "type": "subnets",
+            "location": "[parameters('location')]",
+            "name": "[parameters('subnet6Name')]",
+            "dependsOn": [
+              "[parameters('subnet5Name')]"
+            ],
+            "properties": {
+              "addressPrefix": "[parameters('subnet6Prefix')]"
+            }
+
+            
           }
         ]
       }
