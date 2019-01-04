@@ -141,6 +141,7 @@
             "location": "[parameters('location')]",
             "name": "[parameters('subnet2Name')]",
             "dependsOn": [
+              "[parameters('vnetName')]",
               "[parameters('subnet1Name')]"
             ],
             "properties": {
@@ -153,6 +154,7 @@
             "location": "[parameters('location')]",
             "name": "[parameters('subnet3Name')]",
             "dependsOn": [
+              "[parameters('vnetName')]",
               "[parameters('subnet2Name')]"
             ],
             "properties": {
@@ -165,6 +167,7 @@
             "location": "[parameters('location')]",
             "name": "[parameters('subnet4Name')]",
             "dependsOn": [
+              "[parameters('vnetName')]",
               "[parameters('subnet3Name')]"
             ],
             "properties": {
@@ -177,6 +180,7 @@
             "location": "[parameters('location')]",
             "name": "[parameters('subnet5Name')]",
             "dependsOn": [
+              "[parameters('vnetName')]",
               "[parameters('subnet4Name')]"
             ],
             "properties": {
@@ -189,6 +193,7 @@
             "location": "[parameters('location')]",
             "name": "[parameters('subnet6Name')]",
             "dependsOn": [
+              "[parameters('vnetName')]",
               "[parameters('subnet5Name')]"
             ],
             "properties": {
