@@ -198,9 +198,7 @@
             ],
             "properties": {
               "addressPrefix": "[parameters('subnet6Prefix')]"
-            }
-
-            
+            } 
           }
         ]
       }
