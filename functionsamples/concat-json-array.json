@@ -17,7 +17,7 @@
     },
     "resources": [],
     "outputs": {
-        "return": {
+        "concatOutput": {
             "value": "[concat(parameters('vmname')), '-', (parameters(nic01Name))]",
             "type": "string"
     }
