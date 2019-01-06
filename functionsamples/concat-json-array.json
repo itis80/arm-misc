@@ -5,13 +5,22 @@
         "prefix": {
             "type": "string",
             "defaultValue": "prefix"
+        },
+        "vmname": {
+            "type": "string",
+            "defaultValue": "mgmt01"
+        },
+        "nic01Name": {
+            "type": "string",
+            "defaultValue": "nic01"
         }
     },
     "resources": [],
     "outputs": {
         "concatOutput": {
-            "value": "[concat(parameters('prefix'), '-', uniqueString(resourceGroup().id))]",
+            "value": "[concat(parameters('vmname'), (parameters(nic01Name)]",
             "type" : "string"
-        }
+
     }
+   }
 }
