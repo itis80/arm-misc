@@ -18,11 +18,6 @@
         "type": "string",
         "defaultValue": "2016-Datacenter",
         "allowedValues": [
-          "2008-R2-SP1",
-          "2012-Datacenter",
-          "2012-R2-Datacenter",
-          "2016-Nano-Server",
-          "2016-Datacenter-with-Containers",
           "2016-Datacenter"
         ],
         "metadata": {
@@ -38,13 +33,13 @@
       }
     },
     "variables": {
-      "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'sawinvm')]",
-      "nicName": "myVMNic",
+      "storageAccountName": "[concat('str', uniqueString(resourceGroup().id))]",
+      "nicName": "MGMT01Nic01",
       "addressPrefix": "10.0.0.0/16",
       "subnetName": "Subnet",
       "subnetPrefix": "10.0.0.0/24",
       "publicIPAddressName": "myPublicIP",
-      "vmName": "SimpleWinVM",
+      "vmName": "MGMT01",
       "virtualNetworkName": "MyVNET",
       "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]"
     },
