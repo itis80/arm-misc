@@ -18,8 +18,8 @@
     "resources": [],
     "outputs": {
         "concatOutput": {
-            "value": "[concat(parameters('vmname')), (parameters(nic01Name))]",
-            "type": "string"
-    }
+            "value": "[concat(parameters('vmname')), parameters(nic01Name))]",
+            "type"  : "string"
+      }
    }
 }
