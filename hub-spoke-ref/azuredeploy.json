@@ -35,13 +35,13 @@
     "variables": {
       "storageAccountName": "[concat('str', uniqueString(resourceGroup().id))]",
       "nicName": "MGMT01Nic01",
-      "addressPrefix": "10.0.0.0/16",
+      "vNetAddressPrefix": "10.0.0.0/16",
       "subnetName": "Subnet",
       "subnetPrefix": "10.0.0.0/24",
-      "publicIPAddressName": "myPublicIP",
       "vmName": "MGMT01",
-      "virtualNetworkName": "MyVNET",
-      "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]"
+      "vNetName": "MyVNET",
+      "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vNetName'), variables('subnetName'))]"
+
     },
     "resources": [
         {
@@ -56,6 +56,23 @@
                 "parameters": {
                     "storageAccountName":{"value": "[variables('storageAccountName')]"},
                     "location":{"value": "[parameters('location')]"}
+                }
+            }
+        },
+        {
+            "name": "linkedNetworkTemplate",
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-05-01",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri":"https://raw.githubusercontent.com/itis80/arm-misc/master/linked-template-test/main/linkedTemplates/linkedStorage.json"
+                },
+                "parameters": {
+                    "vNetName":{"value": "[variables('vNetName')]"},
+                    "vNetAddressPrefix":{"value": "[parameters('vNetAddressPrefix')]"},
+                    "subnetName":{"value": "[variables('subnetName')]"},
+                    "subnetPrefix":{"value": "[variables('subnetPrefix')]"}
                 }
             }
         }
