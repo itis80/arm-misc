@@ -19,7 +19,7 @@
     "outputs": {
         "nicname": {
             "type"  : "string",
-            "value": "[concat(parameters('vmname'), parameters(nic01Name))]"
+            "value": "[concat(parameters('vmname'), parameters('nic01Name'))]"
       }
    }
 }
