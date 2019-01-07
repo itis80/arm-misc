@@ -70,7 +70,7 @@
                 },
                 "parameters": {
                     "vNetName":{"value": "[variables('vNetName')]"},
-                    "vNetAddressPrefix":{"value": "[parameters('vNetAddressPrefix')]"},
+                    "vNetAddressPrefix":{"value": "[variables('vNetAddressPrefix')]"},
                     "subnetName":{"value": "[variables('subnetName')]"},
                     "subnetPrefix":{"value": "[variables('subnetPrefix')]"}
                 }
