@@ -81,7 +81,7 @@
                     "nicName":{"value": "[variables('nicName')]"},
                     "subnetRef":{"value": "[variables('subnetRef')]"},
                     "windowsOsVersion":{"value": "[variables('windowsOsVersion')]"}, 
-                    "storageUri":{"value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"}                
+                    "storageUri":{"value": "[reference('linkedStorageTemplate').outputs.storageUri.value]"}                
                 }
             }
         }
