@@ -2,19 +2,6 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-      "adminUsername": {
-        "type": "string",
-        "defaultValue": "hub-admin",
-        "metadata": {
-          "description": "Username for the MGMT Virtual Machine."
-        }
-      },
-      "adminPassword": {
-        "type": "securestring",
-        "metadata": {
-          "description": "Password for the MGMT Virtual Machine."
-        }
-      },
       "location": {
         "type": "string",
         "defaultValue": "[resourceGroup().location]",
