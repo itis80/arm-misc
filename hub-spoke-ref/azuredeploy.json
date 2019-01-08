@@ -4,6 +4,7 @@
     "parameters": {
       "adminUsername": {
         "type": "string",
+        "defaultValue": "hub-admin",
         "metadata": {
           "description": "Username for the MGMT Virtual Machine."
         }
