@@ -83,6 +83,8 @@
                 },
                 "parameters": {
                     "vmName":{"value": "[variables('vmName')]"},
+                    "adminUsername":{"value": "[parameters('adminUsername')]"},
+                    "adminPassword":{"value": "[parameters('adminPassword')]"},
                     "nicName":{"value": "[variables('nicName')]"},
                     "subnetRef":{"value": "[variables('subnetRef')]"},
                     "windowsOsVersion":{"value": "[variables('windowsOsVersion')]"}               
