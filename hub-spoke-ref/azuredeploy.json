@@ -30,7 +30,6 @@
       "subnetName": "Subnet",
       "subnetPrefix": "10.0.0.0/24",
       "vmName": "MGMT01",
-      "AdminuserName": "Hub-admin",
       "vNetName": "MyVNET",
       "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vNetName'), variables('subnetName'))]",
       "WindowsOsVersion": "2016-datacenter"
@@ -84,7 +83,6 @@
                 },
                 "parameters": {
                     "vmName":{"value": "[variables('vmName')]"},
-                    "adminusername":{"value": "[variables('adminusername')]"},
                     "nicName":{"value": "[variables('nicName')]"},
                     "subnetRef":{"value": "[variables('subnetRef')]"},
                     "windowsOsVersion":{"value": "[variables('windowsOsVersion')]"}               
