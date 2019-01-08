@@ -14,16 +14,6 @@
           "description": "Password for the MGMT Virtual Machine."
         }
       },
-      "windowsOSVersion": {
-        "type": "string",
-        "defaultValue": "2016-Datacenter",
-        "allowedValues": [
-          "2016-Datacenter"
-        ],
-        "metadata": {
-          "description": "The Windows version for the MGMT VM."
-        }
-      },
       "location": {
         "type": "string",
         "defaultValue": "[resourceGroup().location]",
@@ -33,14 +23,15 @@
       }
     },
     "variables": {
-      "storageAccountName": "[concat('str', uniqueString(resourceGroup().id))]",
-      "nicName": "MGMT01Nic01",
+      "storageAccountName": "[concat('diag', uniqueString(resourceGroup().id))]",
+      "nicName": "[concat(parameters('vmname')), 'nic01']",
       "vNetAddressPrefix": "10.0.0.0/16",
       "subnetName": "Subnet",
       "subnetPrefix": "10.0.0.0/24",
       "vmName": "MGMT01",
       "vNetName": "MyVNET",
-      "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vNetName'), variables('subnetName'))]"
+      "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vNetName'), variables('subnetName'))]",
+      "WindowsOsVersion": "2016-datacenter"
 
     },
     "resources": [
@@ -60,19 +51,19 @@
             }
         },
         {
-            "name": "linkedNetworkTemplate",
+            "name": "linkedVMTemplate",
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2018-05-01",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri":"https://raw.githubusercontent.com/itis80/arm-misc/master/hub-spoke-ref/linkedTemplates/networkTemplate.json"
+                    "uri":"https://raw.githubusercontent.com/itis80/arm-misc/master/hub-spoke-ref/linkedTemplates/vmTemplate.json"
                 },
                 "parameters": {
-                    "vNetName":{"value": "[variables('vNetName')]"},
-                    "vNetAddressPrefix":{"value": "[variables('vNetAddressPrefix')]"},
-                    "subnetName":{"value": "[variables('subnetName')]"},
-                    "subnetPrefix":{"value": "[variables('subnetPrefix')]"}
+                    "vmName":{"value": "[variables('vmName')]"},
+                    "nicName":{"value": "[variables('nicName')]"},
+                    "subnetRef":{"value": "[variables('subnetRef')]"},
+                    "windowsOsVersion":{"value": "[variables('windowsOsVersion')]"}                 
                 }
             }
         }
