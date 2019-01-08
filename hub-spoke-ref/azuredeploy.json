@@ -51,6 +51,23 @@
             }
         },
         {
+            "name": "linkedNetworkTemplate",
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-05-01",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri":"https://raw.githubusercontent.com/itis80/arm-misc/master/hub-spoke-ref/linkedTemplates/networkTemplate.json"
+                },
+                "parameters": {
+                    "vNetName":{"value": "[variables('vNetName')]"},
+                    "subnetName":{"value": "[variables('subnetName')]"},
+                    "vNetAddressPrefix":{"value": "[variables('vNetAddressPrefix')]"},
+                    "subnetPrefix":{"value": "[variables('subnetPrefix')]"}                
+                }
+            }
+        },
+        {
             "name": "linkedVMTemplate",
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2018-05-01",
