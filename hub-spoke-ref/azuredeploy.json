@@ -23,7 +23,7 @@
       }
     },
     "variables": {
-      "storageAccountName": "[concat('diag', uniqueString(resourceGroup().id))]",
+      "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'sawinvm')]",
       "nicName": "[concat(variables('vmname'), 'nic01')]",
       "vNetAddressPrefix": "10.0.0.0/16",
       "subnetName": "Subnet",
