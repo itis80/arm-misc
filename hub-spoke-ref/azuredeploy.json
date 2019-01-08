@@ -71,6 +71,10 @@
             "name": "linkedVMTemplate",
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2018-05-01",
+            "dependsOn": [
+                "LinkedStorageTemplate",
+                "LinkedNetworkTemplate"
+              ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -80,8 +84,7 @@
                     "vmName":{"value": "[variables('vmName')]"},
                     "nicName":{"value": "[variables('nicName')]"},
                     "subnetRef":{"value": "[variables('subnetRef')]"},
-                    "windowsOsVersion":{"value": "[variables('windowsOsVersion')]"}, 
-                    "storageUri":{"value": "[reference('linkedStorageTemplate').outputs.storageUri.value]"}                
+                    "windowsOsVersion":{"value": "[variables('windowsOsVersion')]"}               
                 }
             }
         }
