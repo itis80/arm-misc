@@ -33,7 +33,6 @@
       "vNetName": "MyVNET",
       "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vNetName'), variables('subnetName'))]",
       "WindowsOsVersion": "2016-datacenter",
-      "storageUri": "[reference('linkedStorageTemplate').outputs.storageUri.value]"
 
     },
     "resources": [
@@ -89,7 +88,7 @@
                     "nicName":{"value": "[variables('nicName')]"},
                     "subnetRef":{"value": "[variables('subnetRef')]"},
                     "windowsOsVersion":{"value": "[variables('windowsOsVersion')]"},
-                    "storageUri":{"value": "[variables('storageUri')]"}         
+                    "storageUri":{"value": "[reference('linkedStorageTemplate').outputs.storageUri.value]"}       
                 }
             }
         }
