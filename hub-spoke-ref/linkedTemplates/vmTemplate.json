@@ -65,7 +65,6 @@
     "location": "[parameters('location')]",
     "apiVersion": "2018-10-01",
     "dependsOn": [
-      "linkedStorageTemplate",
       "[resourceId('Microsoft.Network/networkInterfaces/', parameters('nicName'))]"
     ],
     "properties": {
