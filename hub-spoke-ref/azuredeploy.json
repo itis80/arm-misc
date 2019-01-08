@@ -80,7 +80,8 @@
                     "vmName":{"value": "[variables('vmName')]"},
                     "nicName":{"value": "[variables('nicName')]"},
                     "subnetRef":{"value": "[variables('subnetRef')]"},
-                    "windowsOsVersion":{"value": "[variables('windowsOsVersion')]"}                 
+                    "windowsOsVersion":{"value": "[variables('windowsOsVersion')]"}, 
+                    "storageAccountInfo":{"value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"}                
                 }
             }
         }
