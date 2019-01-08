@@ -32,7 +32,8 @@
       "vmName": "MGMT01",
       "vNetName": "MyVNET",
       "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vNetName'), variables('subnetName'))]",
-      "WindowsOsVersion": "2016-datacenter"
+      "WindowsOsVersion": "2016-datacenter",
+      "storageUri": "[reference('linkedStorageTemplate').outputs.storageUri.value]"
 
     },
     "resources": [
@@ -87,7 +88,8 @@
                     "adminPassword":{"value": "[parameters('adminPassword')]"},
                     "nicName":{"value": "[variables('nicName')]"},
                     "subnetRef":{"value": "[variables('subnetRef')]"},
-                    "windowsOsVersion":{"value": "[variables('windowsOsVersion')]"}               
+                    "windowsOsVersion":{"value": "[variables('windowsOsVersion')]"},
+                    "storageUri":{"value": "[variables('storageUri')]"}         
                 }
             }
         }
