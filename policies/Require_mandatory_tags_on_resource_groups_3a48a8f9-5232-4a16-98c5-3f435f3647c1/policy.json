@@ -1,0 +1,68 @@
+{
+ "properties": {
+  "displayName": "Require mandatory tags on resource groups",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "Require environment, managedBy and projectName tags on resource groups",
+  "metadata": {
+   "createdBy": "06e2d2c3-60b1-4ee4-b115-97a155260e06",
+   "createdOn": "2021-02-01T10:19:52.2862733Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "environment": {
+    "type": "String",
+    "metadata": {
+     "description": "Specify environment type"
+    }
+   },
+   "managedBy": {
+    "type": "String",
+    "metadata": {
+     "description": "Provides information on person who is responsible for administering/supporting the application. Tag value: email"
+    }
+   },
+   "projectName": {
+    "type": "String",
+    "metadata": {
+     "description": "Project name"
+    }
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+     },
+     {
+      "not": {
+       "field": "[concat('tags[',parameters('environment'), ']')]",
+       "exists": "true"
+      }
+     },
+     {
+      "not": {
+       "field": "[concat('tags[',parameters('managedBy'), ']')]",
+       "exists": "true"
+      }
+     },
+     {
+      "not": {
+       "field": "[concat('tags[',parameters('projectName'), ']')]",
+       "exists": "true"
+      }
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/TestiMSDN/providers/Microsoft.Authorization/policyDefinitions/3a48a8f9-5232-4a16-98c5-3f435f3647c1",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "3a48a8f9-5232-4a16-98c5-3f435f3647c1"
+}

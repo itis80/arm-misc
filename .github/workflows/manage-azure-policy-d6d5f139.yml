@@ -1,0 +1,36 @@
+name: manage-azure-policy-d6d5f139
+on:
+  workflow_dispatch:
+    inputs:
+      remarks:
+        description: 'Reason for triggering the workflow run'
+        required: false
+        default: 'Updating Azure Policies'
+
+
+## Uncomment the following if you wish to automatically trigger workflow run with every commit
+#
+#  push:
+#    paths:
+#      - 'policies/Deploy_Azure_Defender_settings_in_Azure_Security_Center._Deploy-ASC-Standard/**'
+#      - 'policies/Deny_the_creation_of_public_IP_Deny-PublicIP/**'
+#      - 'policies/Require_mandatory_tags_on_resource_groups_3a48a8f9-5232-4a16-98c5-3f435f3647c1/**'
+#      - .github/workflows/manage-azure-policy-d6d5f139.yml
+jobs:
+  apply-azure-policy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS_d6d5f139}}
+        allow-no-subscriptions: true
+    - name: Create or Update Azure Policies
+      uses: azure/manage-azure-policy@v0
+      with:
+        paths: |
+          policies/Deploy_Azure_Defender_settings_in_Azure_Security_Center._Deploy-ASC-Standard/**
+          policies/Deny_the_creation_of_public_IP_Deny-PublicIP/**
+          policies/Require_mandatory_tags_on_resource_groups_3a48a8f9-5232-4a16-98c5-3f435f3647c1/**
