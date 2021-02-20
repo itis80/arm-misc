@@ -296,8 +296,5 @@
     }
    }
   }
- },
- "id": "/providers/Microsoft.Management/managementGroups/ESTestMG/providers/Microsoft.Authorization/policyDefinitions/Deploy-ASC-Standard",
- "type": "Microsoft.Authorization/policyDefinitions",
- "name": "Deploy-ASC-Standard"
+ }
 }
