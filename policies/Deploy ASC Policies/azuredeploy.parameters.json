@@ -3,13 +3,13 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "policyAssignmentName": {
-            "value": "ASC custom policies" // TODO: Fill in parameter value
+            "value": "ASC custom policies"
         },
         "policyDefinitionID": {
-            "value": "/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8" // TODO: Fill in parameter value
+            "value": "/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8"
         },
         "targetMG": {
-            "value": "ESTestMG" // TODO: Fill in parameter value
+            "value": "ESTestMG"
         },
         "policyParameters": {
             "metadata": {
