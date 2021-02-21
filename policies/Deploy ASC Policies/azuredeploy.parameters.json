@@ -11,9 +11,18 @@
         "targetMG": {
             "value": "ESTestMG" // TODO: Fill in parameter value
         },
-        "useServicePrincipalToProtectSubscriptionsMonitoringEffect": {
-            "value": "Disabled" // TODO: Fill in parameter value
-        }
-
- }
+        "policyParameters": {
+            "metadata": {
+                "comment": "Policy parameters should be provided as an object"
+            },
+            "value": {
+                "useServicePrincipalToProtectSubscriptionsMonitoringEffect": {
+                    "value": "Disabled"
+                },
+                "updateOsVersionMonitoringEffect": {
+                    "value": "Disabled"
+                }
+            }            
+        }      
+    }
 }

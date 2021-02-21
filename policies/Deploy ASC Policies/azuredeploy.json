@@ -19,12 +19,10 @@
       "type": "string",
       "metadata": {
         "description": "Specifies the target Management Group."
-      }
-    },"useServicePrincipalToProtectSubscriptionsMonitoringEffect": {
-      "type": "string",
-      "metadata": {
-        "description": "Specifies the target Management Group."
-      }
+      } 
+    },
+    "policyParameters": {
+      "type": "object"
     }
   },
   "resources": [
@@ -33,8 +31,10 @@
       "name": "[parameters('policyAssignmentName')]",
       "apiVersion": "2019-09-01",
       "properties": {
+        
         "scope": "[tenantResourceId('Microsoft.Management/managementGroups', parameters('targetMG'))]",
-        "policyDefinitionId": "[parameters('policyDefinitionID')]"
+        "policyDefinitionId": "[parameters('policyDefinitionID')]",
+        "parameters": "[parameters('policyParameters')]"
       }
     }
   ]
