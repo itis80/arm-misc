@@ -1,5 +1,5 @@
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "adminUsername": {
@@ -24,15 +24,15 @@
       }
     },
     "variables": {
-      "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'sawinvm')]",
+      "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'diagstr')]",
       "nicName": "[concat(variables('vmname'), 'nic01')]",
       "vNetAddressPrefix": "10.0.0.0/16",
-      "subnetName": "Subnet",
+      "subnetName": "mgmt",
       "subnetPrefix": "10.0.0.0/24",
       "vmName": "MGMT01",
-      "vNetName": "MyVNET",
+      "vNetName": "hub-vnet",
       "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vNetName'), variables('subnetName'))]",
-      "WindowsOsVersion": "2016-datacenter",
+      "WindowsOsVersion": "2019-datacenter"
 
     },
     "resources": [
