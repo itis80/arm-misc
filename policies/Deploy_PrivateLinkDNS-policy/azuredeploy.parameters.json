@@ -6,10 +6,10 @@
             "value": "Deploy PrivateLink DNS"
         },
         "policyDefinitionID": {
-            "value": "/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8"
+            "value": ""
         },
         "targetMG": {
-            "value": "Management-MG"
+            "value": ""
         },
         "policyParameters": {
             "metadata": {
@@ -17,7 +17,7 @@
             },
             "value": {
                 "privateDnsZoneId": {
-                    "value": "/subscriptions/2bfa79a2-137e-47e6-b35c-5c33fe9d3f8e/resourceGroups/rg-hubnetworking-we/providers/Microsoft.Network/privateDnsZones/privatelink.blob.core.windows.net"
+                    "value": ""
                 }
             }            
         }      
