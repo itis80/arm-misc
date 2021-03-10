@@ -34,7 +34,11 @@
         "scope": "[tenantResourceId('Microsoft.Management/managementGroups', parameters('targetMG'))]",
         "policyDefinitionId": "[parameters('policyDefinitionID')]",
         "parameters": "[parameters('policyParameters')]"
-      }
+      },
+      "location": "westeurope",
+      "identity": {
+            "type": "SystemAssigned"
+         }
     }
   ]
 }
