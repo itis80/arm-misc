@@ -2,7 +2,7 @@
 
 $templateFile = ".\azuredeploy.json"
 $templateParameterFile = ".\azuredeploy.parameters.json"
-$location = "westeurope"
-$mgID = "management-mg"
+$location = ""
+$mgID = ""
 
 New-AzManagementGroupDeployment -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -ManagementGroupId $mgID -Location $location
