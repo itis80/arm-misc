@@ -1,0 +1,69 @@
+////////////////////////////////////////////
+////Private DNS & Private Endpoints Policy initiative////
+////////////////////////////////////////////
+
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+     "variables": {
+
+        "policySetName": "enforce-private-dns",
+        "policySetDisplayName": "Enforce Private DNS record for Private Endpoints",
+        "policySetDescription": "This policy initiative enforces the creation of Private Endpoint DNS-records to Private Zone",
+        "blobPolicyDefinition": "",
+        "mysqlPolicyDefinition":""
+
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/policySetDefinitions",
+            "apiVersion": "2019-09-01",
+            "name": "[variables('policySetName')]",
+            "properties": {
+                "displayName": "[variables('policySetDisplayName')]",
+                "description": "[variables('policySetDescription')]",
+                "policyType": "Custom",
+                "metadata": {
+                    "category": "General"
+                },
+                "parameters": {
+                    "blobDNSZoneID": {
+                        "type": "string",
+                        "metadata": {
+                            "displayName": "Blob DNS Zone ID", //Fix without spaces to identify real parameter
+                            "description": "The ID of blob Private DNS Zone"
+                        }
+                    },
+                    "mySQLDNSZoneID": {
+                        "type": "string",
+                        "metadata": {
+                            "displayName": "MySQL DNS Zone ID", //Fix without spaces to identify real parameter
+                            "description": "The ID of MySQL Private DNS Zone"
+                        }
+                    }
+                },
+                "policyDefinitions": [
+                    {
+                        "policyDefinitionId": "[variables('blobPolicyDefinition')]",
+                        "policyDefinitionReferenceId": "blob_zone",
+                        "parameters": {
+                            "privateDNSZoneID": {
+                                "value": "[[parameters('blobDNSZoneID')]"
+                            }
+                        }
+                    },
+                    {
+                        "policyDefinitionId": "[variables('mysqlPolicyDefinition')]",
+                        "policyDefinitionReferenceId": "mysql_zone",
+                        "parameters": {
+                            "privateDNSzoneID": {
+                                "value": "[[parameters('mySQLDNSZoneID')]"
+                            }
+                            
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
