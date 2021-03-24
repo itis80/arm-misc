@@ -10,8 +10,8 @@
         "policySetName": "enforce-private-dns",
         "policySetDisplayName": "Enforce Private DNS record for Private Endpoints",
         "policySetDescription": "This policy initiative enforces the creation of Private Endpoint DNS-records to Private Zone",
-        "blobPolicyDefinition": "",
-        "mysqlPolicyDefinition":""
+        "blobPolicyDefinition": "/providers/Microsoft.Management/managementGroups/../providers/Microsoft.Authorization/policyDefinitions/2e4cbebb-1fae-4af4-b058-ace2a7c336c8",
+        "mysqlPolicyDefinition":"/providers/Microsoft.Management/managementGroups/../providers/Microsoft.Authorization/policyDefinitions/ff10ed8e-0f57-4b9f-9d2a-eb578b95b6d9"
 
     },
     "resources": [
@@ -24,20 +24,20 @@
                 "description": "[variables('policySetDescription')]",
                 "policyType": "Custom",
                 "metadata": {
-                    "category": "General"
+                    "category": "Network"
                 },
                 "parameters": {
                     "blobDNSZoneID": {
                         "type": "string",
                         "metadata": {
-                            "displayName": "Blob DNS Zone ID", //Fix without spaces to identify real parameter
-                            "description": "The ID of blob Private DNS Zone"
+                            "displayName": "BlobDNSZoneID", //Fix without spaces to identify real parameter
+                            "description": "The ID ofblob PrivateDNSZone"
                         }
                     },
                     "mySQLDNSZoneID": {
                         "type": "string",
                         "metadata": {
-                            "displayName": "MySQL DNS Zone ID", //Fix without spaces to identify real parameter
+                            "displayName": "MySQLDNSZone ID", //Fix without spaces to identify real parameter
                             "description": "The ID of MySQL Private DNS Zone"
                         }
                     }

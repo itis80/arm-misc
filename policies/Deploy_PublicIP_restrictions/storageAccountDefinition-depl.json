@@ -1,0 +1,35 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+     "resources": [
+             {
+    "name": "denyStorageAccountPublicAccess",
+     "type": "Microsoft.Authorization/policyDefinitions",
+     "apiVersion": "2018-05-01",
+     "properties": {
+    "policyType": "Custom",
+    "mode": "All",
+    "displayName": "Deny Storage Account Public Access",
+    "description": "Prevents Storage Account Public Access",
+    "parameters": null,
+    "policyRule": {
+        "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
+          },
+          {
+            "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
+            "notequals": "Deny"
+          }
+        ]
+      },
+      "then": {
+        "effect": "Deny"
+       }
+      }
+     }
+    }
+  ]
+}

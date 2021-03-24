@@ -1,0 +1,36 @@
+
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+     "resources": [
+             {
+    "name": "denyMySQLPublicAccess",
+     "type": "Microsoft.Authorization/policyDefinitions",
+     "apiVersion": "2018-05-01",
+     "properties": {
+    "policyType": "Custom",
+    "mode": "All",
+    "displayName": "Deny MySQL Database Public Access",
+    "description": "Prevents MySQL Database Public Access",
+    "parameters": null,
+    "policyRule": {
+    "if": {
+      "allOf": [
+        {
+          "field": "type",
+          "equals": "Microsoft.DBforMySQL/servers"
+        },
+        {
+          "field": "Microsoft.DBforMySQL/servers/publicNetworkAccess",
+          "notequals": "Disabled"
+        }
+      ]
+    },
+    "then": {
+      "effect": "Deny"
+    }
+      }
+     }
+    }
+  ]
+}

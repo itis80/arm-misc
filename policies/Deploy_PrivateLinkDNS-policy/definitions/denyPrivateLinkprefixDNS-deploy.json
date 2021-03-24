@@ -1,0 +1,35 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+       "resources": [
+               {
+      "name": "denyprivatelinkdnszone",
+       "type": "Microsoft.Authorization/policyDefinitions",
+       "apiVersion": "2018-05-01",
+       "properties": {
+      "policyType": "Custom",
+      "mode": "All",
+      "displayName": "Deny PrivateDNSZone PrivateLink",
+      "description": "Prevents creation of privatelink Private Dns zones",
+      "parameters": null,
+      "policyRule": {
+    "if": {
+      "allOf": [
+        {
+          "field": "type",
+          "equals": "Microsoft.Network/privateDnsZones"
+        },
+        {
+          "field": "name",
+          "like": "privatelink*"
+        }
+      ]
+    },
+    "then": {
+      "effect": "Deny"
+    }
+        }
+       }
+      }
+    ]
+  }
